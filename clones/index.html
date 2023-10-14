@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <style>
+            :root {
+                --square-size: 80;
+                --board-size: 64;
+                --board-offset-x: 40;
+                --board-offset-y: 100;
+
+                --background: #2E3440;
+                --dark: #3B4252;
+                --light: #4C566A;
+
+                user-select: none;
+            }
+
+            body {
+                background-color: var(--background);
+            }
+
+            .dark {
+                background-color: var(--dark);
+                position: absolute;
+            }
+
+            .light {
+                background-color: var(--light);
+                position: absolute;
+            }
+
+            .clone {
+                background-color: #5e81ac20;
+                border-radius: 50%;
+                display: inline-block;
+                scale: 0.60;
+                position: absolute;               
+            }
+
+            .active {
+                background-color: #5E81AC;
+                border-radius: 50%;
+                display: inline-block;
+                scale: 0.60;
+                position: absolute;
+            }
+
+            .prison {
+                background-color: #434C5E;
+            }
+
+            p {
+                font-family: Arial, Sans-Serif; 
+                font-size: 15px;
+                line-height: 16px;
+                margin: 0 0 16px 0;
+                opacity: 0.6;
+                color: #8FBCBB;
+                position: absolute;
+                white-space: nowrap;
+            }
+
+            p.sum_label {
+                font-size: 20px;
+            }
+
+            p#qed {
+                font-family: Impact, Arial, Sans-Serif; 
+                font-size: 35vw;
+                opacity: 1;
+                color: #8FBCBB;
+                position: absolute;
+                text-align: justify;
+                display: inline-block;
+                width: 100%;
+                left: 10vw;
+                top: 50vh;
+            }
+
+            span {
+                font-family: Arial, Sans-Serif;
+                font-size: 25px;
+                left: 270px;
+                top: 15px;
+                color: #8FBCBB;
+                position: absolute;
+                white-space: nowrap;
+            }
+
+            .invisible {
+                visibility: hidden;
+            }
+
+            #overlay {
+                background-color: var(--background); 
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+
+            button {
+                background-color: #4C566A;
+                border: none;
+                color: #8FBCBB;
+                padding: 15px 0;
+                text-align: center;
+                display: inline-block;
+                font-size: 16px;
+                width: 120px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <button onclick="change_slide(-1)">Previous</button>
+        <button onclick="change_slide(1)">Next</button>
+
+        <span id="board_weight"></span>
+
+        <div id="board">
+            <div id="squares"></div>
+            <div id="sums"></div>
+            <div id="clones"></div>
+        </div>
+
+        <div id="overlay" class="invisible"></div>
+        <p id="qed" class="invisible">Q.E.D.</p>
+
+        <script type="text/javascript" src="game.js"></script>
+    </body>
+</html>
