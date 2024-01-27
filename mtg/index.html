@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <style>
+            :root {
+                --background: #2E3440;
+                --secondary: #4C566A;
+                --primary: #5E81AC;
+            }
+
+            body {
+                background-color: var(--background);
+                color: var(--primary);
+                font-family: Arial;
+            }
+
+            table {
+                table-layout: fixed;
+                background: #3B4252;
+                width: 600px;
+            }
+
+            td {
+                text-align: center;
+                padding-right: 15px;
+                padding-left: 15px;
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+
+            table { border: 2px solid #434C5E; border-collapse: collapse; }
+            table tr#input_row { border-bottom: 2px solid #434C5E; }
+            table tr#input_row:last-child { border-bottom: none; }
+
+            input {
+                background-color: var(--secondary);
+                color: #ECEFF4;
+                border: 0;
+                width: 70px;
+                height: 30px;
+            }
+
+            p {
+                background-color: var(--secondary);
+                color: #ECEFF4;
+                height: 18px;
+                padding: 6px 0;
+            }
+
+            table#percent_to_cards {
+                position: relative;
+                top: 10px;
+            }
+
+            table#totals {
+                position: relative;
+                top: 20px;
+            }
+
+            table#header2 {
+                position: absolute;
+                top: 8px;
+                left: 618px;
+                width: 804px;
+                height: 42px;
+            }
+
+            canvas {
+                border: 2px solid #434C5E;
+                background-color: #3B4252;
+                width: 800px;
+                height: 800px;
+                position: absolute;
+                top: 60px;
+                left: 618px;
+            }
+        </style>
+    </head>
+    <body>
+        <table id="header1">
+            <tr>
+                <th>Given the probability that a certain type of card will appear by a given turn, how many of those cards should be in your deck?</th>
+            </tr>
+        </table>
+
+        <table id="percent_to_cards">
+            <tr>
+                <th>Strategic Category</th>
+                <th>Turns</th>
+                <th>% Likelihood of at Least 1 Card Being Drawn by the Given Turn</th>
+                <th>Cards Needed in Deck</th>
+            </tr>
+            <tr id="input_row" oninput="calculate()">
+                <td><input style="background-color:rgb(166,89,89)"></input></td>
+                <td><input type="number"></input></td>
+                <td><input type="number"></input></td>
+                <td><p></p></td>
+            </tr>
+        </table>
+
+        <table id="totals">
+            <tr>
+                <th>% Likelihood of one card from each category being drawn at the proper time</th>
+                <th>Total Cards Needed in Deck</th>
+            </tr>
+            <tr>
+                <td><p id="overall_success"></p></td>
+                <td><p id="total_cards"></p></td>
+            </tr>
+        </table>
+
+        <table id="header2">
+            <tr>
+                <th>On any turn, how likely is it that you have a card from the category available to you?</th>
+            </tr>
+        </table>
+
+        <canvas id="graph" width="800" height="800"></canvas>
+
+        <script type="text/javascript" src="table_management.js"></script>
+    </body>
+</html>
